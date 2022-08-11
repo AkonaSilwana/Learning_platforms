@@ -31,7 +31,7 @@ function SignUp() {
 height={'400px'} position={'absolute'} left={'250px'}/>
      <Box background={'#F7F8FF'} width={'300px'} height={'400px'}>  
     <Heading>Sign Up</Heading>
-    <Image  src='./Images/logo.png' alt="logo" width={'100px'} height={'100px'}/>
+    {/* <Image  src='./Images/logo.png' alt="logo" width={'100px'} height={'100px'}/> */}
 
 <form onSubmit={event => {sendForm(event)}}>
         <fieldset>

@@ -4,7 +4,7 @@ import { ChakraProvider,Button, Image, Heading } from '@chakra-ui/react';
 function NotFound() {
 
  const getLink = () => {
-  return <Link to="/Login"></Link>
+   <Link to="/Login"></Link>
  }
 
   return (
@@ -12,7 +12,7 @@ function NotFound() {
        <Image boxSize='150px' src='./Images/logo.png' alt="logo" />
        <Heading>page not Found</Heading>
         <Image src='./Images/404error.jpg' alt=''/>
-         <Button width={'150px'} colorScheme='orange' onClick={getLink}>Back to home</Button> 
+        <Button onClick={getLink}>Back to home page</Button>
       
     </div>
   )

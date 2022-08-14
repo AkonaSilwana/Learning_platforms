@@ -1,7 +1,8 @@
 import  {FormEvent, useState} from 'react';
 import { ChakraProvider,Input,Button, useDisclosure, Heading, Image,Box } from '@chakra-ui/react';
 import LoginModal from './LoginModal';
-import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
+import { ViewOffIcon } from '@chakra-ui/icons';
 
 
 const form = async (event: FormEvent<HTMLFormElement>) => {
@@ -23,11 +24,11 @@ function Login() {
   return (
     <ChakraProvider>
          
-      <Image boxSize='200px' src='./Images/picture.jpg' alt=""  width={'300px'}
-height={'400px'} position={'absolute'} left={'250px'}/>
-<Box background={'#F7F8FF'} width={'300px'} height={'400px'}>  
+      <Image boxSize='200px' src='./Images/picture.jpg' alt=""  width={'600px'}
+height={'700px'} position={'absolute'} left={'50px'}/>
+<Box background={'#F7F8FF'}  width={'600px'} height={'700px'} position={'absolute'} right={'50px'} >  
       <Heading>Login </Heading>
-       <Image boxSize='100px' align={'center'} src='./Images/logo.png' alt="logo" />
+       <Image  src='./Images/logo.png' alt="logo" width={'150px'} height={'150px'}  right={'500px'} />
     <form onSubmit={event => {form(event)}}>
        <fieldset>
          <Input
@@ -51,6 +52,7 @@ height={'400px'} position={'absolute'} left={'250px'}/>
         placeholder='Password'
          onChange={(event: any) => {setPassword(event.target.value)}}
        />
+       <ViewOffIcon/>
       </fieldset>
        {<Button marginBottom={'15px'} height={'33px'} width={'100px'} colorScheme='orange' onClick={onOpen}>Login</Button> }
      </form>

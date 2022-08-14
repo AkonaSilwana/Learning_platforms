@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider, Flex, Heading,Input, Image  } from '@chakra-ui/react';
 
 
 
@@ -15,16 +14,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
    
-    <ChakraProvider>
       
-   <Flex height="100vh" alignItems="center" justifyContent ="center">
-    <Flex direction="column" background="white" p={12} rounded={6}>
       
      <App />
    
-     </Flex>
- </Flex>
-    </ChakraProvider>
     
    
   </React.StrictMode>

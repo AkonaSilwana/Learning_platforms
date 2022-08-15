@@ -26,14 +26,16 @@ function Login() {
          
       <Image boxSize='200px' src='./Images/picture.jpg' alt=""  width={'600px'}
 height={'700px'} position={'absolute'} left={'50px'}/>
-<Box background={'#F7F8FF'}  width={'600px'} height={'700px'} position={'absolute'} right={'50px'} >  
-      <Heading>Login </Heading>
-       <Image  src='./Images/logo.png' alt="logo" width={'150px'} height={'150px'}  right={'500px'} />
-    <form onSubmit={event => {form(event)}}>
+<Box background={'#F7F8FF'}  width={'600px'} height={'700px'} position={'absolute'} right={'5px'} >  
+      <Heading  left={'150px'}>Login </Heading>
+       <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}  right={'100px'} />
+    <form  onSubmit={event => {form(event)}}>
        <fieldset>
          <Input
-          width={'150px'}
+          width={'300px'}
           variant="flushed"
+          marginTop={'100px'}
+          left={'150px'}
          value={email}
          type="email" 
          id="email"
@@ -43,8 +45,9 @@ height={'700px'} position={'absolute'} left={'50px'}/>
       </fieldset>
       <fieldset>
         <Input
-         width={'150px'}
+         width={'300px'}
           marginBottom={'20px'}
+            left={'150px'}
          variant="flushed"
         value={password}
         type="password"
@@ -52,9 +55,9 @@ height={'700px'} position={'absolute'} left={'50px'}/>
         placeholder='Password'
          onChange={(event: any) => {setPassword(event.target.value)}}
        />
-       <ViewOffIcon/>
+       <ViewOffIcon left={'500px'}/>
       </fieldset>
-       {<Button marginBottom={'15px'} height={'33px'} width={'100px'} colorScheme='orange' onClick={onOpen}>Login</Button> }
+       {<Button marginBottom={'15px'} height={'33px'} width={'100px'} left={'150px'} colorScheme='orange' onClick={onOpen}>Login</Button> }
      </form>
      <LoginModal  email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
       <p>Don't have an acount ? <Link to="/SignUp">Sign Up</Link></p>

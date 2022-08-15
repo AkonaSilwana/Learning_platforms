@@ -31,14 +31,15 @@ function SignUp() {
 height={'700px'} position={'absolute'} left={'50px'}/>
      <Box background={'#F7F8FF'} width={'600px'} height={'700px'} position={'absolute'} right={'50px'}>  
     <Heading>Sign Up</Heading>
-    { <Image  src='./Images/logo.png' alt="logo" width={'100px'} height={'100px'}/> }
+    { <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}/> }
   
 <form onSubmit={event => {sendForm(event)}}>
         <fieldset>
            
          <Input
-         width={'350px'}
-        
+          marginTop={'80px'}
+         width={'300px'}
+        left={'150px'}
           variant="flushed"
          value={fullName}
          type="text" 
@@ -50,8 +51,8 @@ height={'700px'} position={'absolute'} left={'50px'}/>
       </fieldset>
       <fieldset>
          <Input
-          width={'350px'}
-         
+          width={'300px'}
+          left={'150px'}
           variant="flushed"
          value={email}
          type="email" 
@@ -62,8 +63,8 @@ height={'700px'} position={'absolute'} left={'50px'}/>
       </fieldset>
       <fieldset>
         <Input
-        width={'350px'}
-      
+        width={'300px'}
+        left={'150px'}
         marginBottom={'20px'}
          variant="flushed"
         value={password}
@@ -78,7 +79,7 @@ height={'700px'} position={'absolute'} left={'50px'}/>
       
      </form>
      
-      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
+      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange'  left={'150px'} onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         <p>Already have an acount ? <Link to="/Login">Login</Link></p>
        

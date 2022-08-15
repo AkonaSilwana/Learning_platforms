@@ -1,8 +1,9 @@
 import  {FormEvent, useState} from 'react';
-import { ChakraProvider, Input, Heading, useDisclosure, Button, Image, Box, Icon } from '@chakra-ui/react';
+import {  Input, Heading, useDisclosure, Button, Image, Box, } from '@chakra-ui/react';
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
-import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom';
-import Login from './Login';
+import { Link  } from 'react-router-dom';
+
+import { ViewOffIcon } from '@chakra-ui/icons';
 
 const sendForm = async (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault()
@@ -24,19 +25,21 @@ function SignUp() {
 
    const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-     <ChakraProvider>
-      
+      <>
        
-      <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'300px'}
-height={'400px'} position={'absolute'} left={'250px'}/>
-     <Box background={'#F7F8FF'} width={'300px'} height={'400px'}>  
+      <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'600px'}
+height={'700px'} position={'absolute'} left={'50px'}/>
+     <Box background={'#F7F8FF'} width={'600px'} height={'700px'} position={'absolute'} right={'50px'}>  
     <Heading>Sign Up</Heading>
-    { <Image  src='./Images/logo.png' alt="logo" width={'100px'} height={'100px'}/> }
-
+    { <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}/> }
+  
 <form onSubmit={event => {sendForm(event)}}>
         <fieldset>
+           
          <Input
-         width={'150px'}
+          marginTop={'80px'}
+         width={'300px'}
+        left={'150px'}
           variant="flushed"
          value={fullName}
          type="text" 
@@ -44,10 +47,12 @@ height={'400px'} position={'absolute'} left={'250px'}/>
          placeholder='FullName'
          onChange={(event: any) => {setFullName(event.target.value)}}
         />
+        
       </fieldset>
       <fieldset>
          <Input
-         width={'150px'}
+          width={'300px'}
+          left={'150px'}
           variant="flushed"
          value={email}
          type="email" 
@@ -58,7 +63,8 @@ height={'400px'} position={'absolute'} left={'250px'}/>
       </fieldset>
       <fieldset>
         <Input
-        width={'150px'}
+        width={'300px'}
+        left={'150px'}
         marginBottom={'20px'}
          variant="flushed"
         value={password}
@@ -68,15 +74,17 @@ height={'400px'} position={'absolute'} left={'250px'}/>
         
          onChange={(event: any) => {setPassword(event.target.value)}}
        />
+       <ViewOffIcon/>
       </fieldset>
       
      </form>
-      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
+     
+      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange'  left={'150px'} onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         <p>Already have an acount ? <Link to="/Login">Login</Link></p>
        
         </Box>
-     </ChakraProvider>    
+        </>
   )
 }
 

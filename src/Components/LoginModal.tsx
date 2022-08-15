@@ -1,6 +1,6 @@
 import React from 'react'
-import {ChakraProvider,Box, useDisclosure,Modal, ModalOverlay, ModalContent,ModalHeader,ModalFooter,
-   ModalBody, ModalCloseButton,Text , Button, Input, Image} from '@chakra-ui/react'
+import {Box,Modal, ModalOverlay, ModalContent,ModalHeader,ModalFooter,
+   ModalBody, ModalCloseButton,Text , Button, Image} from '@chakra-ui/react'
 
    
    type LoginUserDetails = {
@@ -26,23 +26,10 @@ function LoginModal(props: LoginUserDetails) {
           <ModalCloseButton />
           <ModalBody  >
             <fieldset>
-           <Input
-            fontFamily={'Roboto'}
-            htmlSize={12} width='auto'
-              variant='filled'
-           placeholder='FullName'
-           marginBottom={'15px'}
-          
-           />
+           
            <Text></Text>
            </fieldset>
             <fieldset>
-           <Input
-             fontFamily={'Roboto'}
-              htmlSize={12} width='auto'
-              variant='filled'
-           placeholder='Email Address'
-           />
            <Text>{props.email}</Text>
            </fieldset>
           </ModalBody>

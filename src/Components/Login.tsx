@@ -1,7 +1,8 @@
 import  {FormEvent, useState} from 'react';
 import { ChakraProvider,Input,Button, useDisclosure, Heading, Image,Box } from '@chakra-ui/react';
 import LoginModal from './LoginModal';
-import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
+import { ViewOffIcon } from '@chakra-ui/icons';
 
 
 const form = async (event: FormEvent<HTMLFormElement>) => {
@@ -23,16 +24,18 @@ function Login() {
   return (
     <ChakraProvider>
          
-      <Image boxSize='200px' src='./Images/picture.jpg' alt=""  width={'300px'}
-height={'400px'} position={'absolute'} left={'250px'}/>
-<Box background={'#F7F8FF'} width={'300px'} height={'400px'}>  
-      <Heading>Login </Heading>
-       <Image boxSize='100px' align={'center'} src='./Images/logo.png' alt="logo" />
-    <form onSubmit={event => {form(event)}}>
+      <Image boxSize='200px' src='./Images/picture.jpg' alt=""  width={'600px'}
+height={'700px'} position={'absolute'} left={'50px'}/>
+<Box background={'#F7F8FF'}  width={'600px'} height={'700px'} position={'absolute'} right={'5px'} >  
+      <Heading  left={'150px'}>Login </Heading>
+       <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}  right={'100px'} />
+    <form  onSubmit={event => {form(event)}}>
        <fieldset>
          <Input
-          width={'150px'}
+          width={'300px'}
           variant="flushed"
+          marginTop={'100px'}
+          left={'150px'}
          value={email}
          type="email" 
          id="email"
@@ -42,8 +45,9 @@ height={'400px'} position={'absolute'} left={'250px'}/>
       </fieldset>
       <fieldset>
         <Input
-         width={'150px'}
+         width={'300px'}
           marginBottom={'20px'}
+            left={'150px'}
          variant="flushed"
         value={password}
         type="password"
@@ -51,8 +55,9 @@ height={'400px'} position={'absolute'} left={'250px'}/>
         placeholder='Password'
          onChange={(event: any) => {setPassword(event.target.value)}}
        />
+       <ViewOffIcon left={'500px'}/>
       </fieldset>
-       {<Button marginBottom={'15px'} height={'33px'} width={'100px'} colorScheme='orange' onClick={onOpen}>Login</Button> }
+       {<Button marginBottom={'15px'} height={'33px'} width={'100px'} left={'150px'} colorScheme='orange' onClick={onOpen}>Login</Button> }
      </form>
      <LoginModal  email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
       <p>Don't have an acount ? <Link to="/SignUp">Sign Up</Link></p>

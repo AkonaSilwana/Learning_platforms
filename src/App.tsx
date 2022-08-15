@@ -1,10 +1,10 @@
 import react from 'react';
-import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 import Login from './Components/Login';
 import './App.css';
 import SignUp from './Components/SignUp';
 import NotFound from './Components/NotFound';
-
+import { ChakraProvider, Flex } from '@chakra-ui/react';
 
 
 
@@ -13,8 +13,9 @@ function App() {
   
    
   return (
+    <ChakraProvider>
+    
     <Router>
-    <div className="App">
       
     <Switch>
       <Route path="/SignUp" component={SignUp}/>
@@ -22,8 +23,9 @@ function App() {
         <Route path="/*" component={NotFound}/>
      </Switch> 
     
-    </div>
     </Router>
+   
+    </ChakraProvider>
   );
 }
 

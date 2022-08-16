@@ -1,7 +1,8 @@
-import  {FormEvent, useState} from 'react';
-import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery } from '@chakra-ui/react';
+import type {FormEvent, ChangeEvent} from 'react';
+import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, } from '@chakra-ui/react';
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
+import  {useState} from 'react';
 
 import { ViewOffIcon } from '@chakra-ui/icons';
 
@@ -12,7 +13,7 @@ const sendForm = async (event: FormEvent<HTMLFormElement>) => {
     fullName: {value: string}
     email: {value: string }
      password: {value: string }
-     value:FormEvent
+    
   }
   console.log(fullName.value, email.value, password.value)
 }
@@ -27,10 +28,23 @@ function SignUp() {
    const { isOpen, onOpen, onClose } = useDisclosure()
 
     const [isResponsive] = useMediaQuery('(max-width: 750px)')
-   
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setFullName(event.target.value)
+       
+    }
+    const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value)
+       
+    }
+    const handleChange2 = (event: ChangeEvent<HTMLInputElement>) => {
+        setPassword(event.target.value)
+       
+    }
  
   return (
       <>
+      <Box textAlign={'center'} height={'100vh'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
       <Box height={'700px'} width={isResponsive ?'100%':'50%'}>
         
@@ -38,43 +52,45 @@ function SignUp() {
 height={'700px'} />
       </Box>
      
-     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'100%':'50%'} >  
-      <Heading>Sign Up</Heading> 
-   
+     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'100%':'50%'} >
+      <Box alignItems={'flex-end'} fontSize={'12px'}>  
+     <Text >English(UK)</Text>
+     </Box>
+      <Heading>Sign Up</Heading>
+      
+     <Box alignItems={'center'}>
     { <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}/> }
-   
+   </Box>
+     <Text>OR</Text>
 <form onSubmit={event => {sendForm(event)}}>
         <fieldset>
            
          <Input
           marginTop={'80px'}
          width={'300px'}
-        left={'150px'}
-          variant="flushed"
+         variant="flushed"
          value={fullName}
          type="text" 
          id="name"
          placeholder='FullName'
-         onChange={(event: any) => {setFullName(event.target.value)}}
+         onChange={handleChange}
         />
         
       </fieldset>
       <fieldset>
          <Input
           width={'300px'}
-          left={'150px'}
-          variant="flushed"
+         variant="flushed"
          value={email}
          type="email" 
          id="email"
          placeholder='Email Address'
-          onChange={(event: any) => {setEmail(event.target.value)}}
+          onChange={handleChange1}
          />
       </fieldset>
       <fieldset>
         <Input
         width={'300px'}
-        left={'150px'}
         marginBottom={'20px'}
          variant="flushed"
         value={password}
@@ -82,19 +98,20 @@ height={'700px'} />
         id="password"
         placeholder='Password'
         
-         onChange={(event: any) => {setPassword(event.target.value)}}
+         onChange={handleChange2}
        />
        <ViewOffIcon/>
       </fieldset>
       
      </form>
      
-      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange'  left={'150px'} onClick={onOpen}>Create Account</Button>
+      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         <Text>Already have an acount ? <Link to="/Login">Login</Link></Text>
        
         </Box>
         
+        </Box>
         </Box>
         </>
   )

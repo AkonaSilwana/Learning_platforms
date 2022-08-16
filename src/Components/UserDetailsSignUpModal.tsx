@@ -1,6 +1,6 @@
 import React from 'react'
 import {ChakraProvider,Box, Modal, ModalOverlay, ModalContent,ModalHeader,ModalFooter,
-   ModalBody, ModalCloseButton,Text , Button, Image} from '@chakra-ui/react'
+   ModalBody, ModalCloseButton,Text , Button, Image, Input} from '@chakra-ui/react'
 
     
   
@@ -29,12 +29,23 @@ function UserDetailsSignUpModal(props: SignUpUserDetails) {
           <ModalCloseButton />
           <ModalBody >
             <fieldset>
-              <Text>{props.name}</Text> 
-           
+           <Input
+           value={props.name}
+           variant={'flushed'}
+           placeholder={'Fullname'}
+           size={'18px'}
+           marginBottom={'10px'}
+           />
            </fieldset>
             <fieldset>
-             
-           <Text>{props.email}</Text>
+              <Input
+           value={props.email}
+           variant={'flushed'}
+           placeholder={'Email'}
+           size={'18px'}
+           marginBottom={'10px'}
+           />
+          
            </fieldset>
           </ModalBody>
            <Text></Text>

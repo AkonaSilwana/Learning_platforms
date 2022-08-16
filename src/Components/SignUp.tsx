@@ -1,5 +1,5 @@
 import  {FormEvent, useState} from 'react';
-import {  Input, Heading, useDisclosure, Button, Image, Box, } from '@chakra-ui/react';
+import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery } from '@chakra-ui/react';
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ const sendForm = async (event: FormEvent<HTMLFormElement>) => {
     fullName: {value: string}
     email: {value: string }
      password: {value: string }
+     value:FormEvent
   }
   console.log(fullName.value, email.value, password.value)
 }
@@ -24,15 +25,24 @@ function SignUp() {
   const [password, setPassword] = useState("")
 
    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const [isResponsive] = useMediaQuery('(max-width: 750px)')
+   
+ 
   return (
       <>
-       
-      <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'600px'}
-height={'700px'} position={'absolute'} left={'50px'}/>
-     <Box background={'#F7F8FF'} width={'600px'} height={'700px'} position={'absolute'} right={'50px'}>  
-    <Heading>Sign Up</Heading>
+      <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
+      <Box height={'700px'} width={isResponsive ?'100%':'50%'}>
+        
+      <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'100%'}
+height={'700px'} />
+      </Box>
+     
+     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'100%':'50%'} >  
+      <Heading>Sign Up</Heading> 
+   
     { <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}/> }
-  
+   
 <form onSubmit={event => {sendForm(event)}}>
         <fieldset>
            
@@ -81,8 +91,10 @@ height={'700px'} position={'absolute'} left={'50px'}/>
      
       <Button marginBottom={'10px'} height={'33px'} colorScheme='orange'  left={'150px'} onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
-        <p>Already have an acount ? <Link to="/Login">Login</Link></p>
+        <Text>Already have an acount ? <Link to="/Login">Login</Link></Text>
        
+        </Box>
+        
         </Box>
         </>
   )

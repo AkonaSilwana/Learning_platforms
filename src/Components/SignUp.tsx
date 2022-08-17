@@ -1,5 +1,5 @@
 import type {FormEvent, ChangeEvent} from 'react';
-import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, } from '@chakra-ui/react';
+import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, Flex, Center, } from '@chakra-ui/react';
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 import  {useState} from 'react';
@@ -44,24 +44,27 @@ function SignUp() {
  
   return (
       <>
+      
+      
       <Box textAlign={'center'} height={'100vh'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
-      <Box height={'700px'} width={isResponsive ?'100%':'50%'}>
+        
+      <Box height={'700px'} width={isResponsive ?'80%':'50%'}>
         
       <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'100%'}
 height={'700px'} />
       </Box>
-     
-     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'100%':'50%'} >
-      <Box alignItems={'flex-end'} fontSize={'12px'}>  
-     <Text >English(UK)</Text>
-     </Box>
-      <Heading>Sign Up</Heading>
       
-     <Box alignItems={'center'}>
-    { <Image  src='./Images/logo.png' alt="logo" width={'250px'} height={'250px'}/> }
-   </Box>
-     <Text>OR</Text>
+    
+     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'80%':'50%'} >
+     
+      <Heading>Sign Up</Heading>
+    
+     <Center alignItems={'center'} left={200}>
+    { <Image  src='./Images/logo.png' alt="logo" width={'313px'} height={'158px'}/> }
+   </Center>
+  
+     <Text color={'grey'}>OR</Text>
 <form onSubmit={event => {sendForm(event)}}>
         <fieldset>
            
@@ -105,14 +108,16 @@ height={'700px'} />
       
      </form>
      
-      <Button marginBottom={'10px'} height={'33px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
+      <Button marginBottom={'10px'} height={'53px'} width={'434px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         <Text>Already have an acount ? <Link to="/Login">Login</Link></Text>
-       
-        </Box>
         
         </Box>
+       
         </Box>
+        </Box>
+        
+   
         </>
   )
 }

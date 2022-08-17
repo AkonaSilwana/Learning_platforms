@@ -1,5 +1,5 @@
 import type {FormEvent, ChangeEvent} from 'react';
-import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, Flex, Center, } from '@chakra-ui/react';
+import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, Center, } from '@chakra-ui/react';
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 import  {useState} from 'react';

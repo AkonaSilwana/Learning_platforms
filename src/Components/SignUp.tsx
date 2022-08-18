@@ -4,7 +4,7 @@ import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 import  {useState} from 'react';
 
-import { ViewOffIcon } from '@chakra-ui/icons';
+import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons';
 
 const sendForm = async (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault()
@@ -57,8 +57,9 @@ height={'100%'} />
       
     
      <Box background={'#F7F8FF'}  height={'700px'}  maxHeight={'100%'} width={isResponsive ?'95%':'50%'} >
-      <Text fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'300px'} fontSize={'12px'} lineHeight={'40px'} display={'flex'} alignItems={'flex-end'} right={'300px'} >English(UK)</Text>
-      <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={'30px'} lineHeight={'30px'}>Sign Up</Heading>
+      <Text fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'300px'} fontSize={'12px'} lineHeight={'40px'} display={'flex'} alignItems={'flex-end'} position={'absolute'} right={'10px'}>English(UK) <TriangleDownIcon/> </Text>
+      
+      <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={'30px'} lineHeight={'30px'} marginTop={'40px'}>Sign Up</Heading>
     
      <Center alignItems={'center'} left={200}>
     { <Image  src='./Images/logo.png' alt="logo" width={'313px'} height={'158px'}/> }

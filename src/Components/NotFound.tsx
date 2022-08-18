@@ -11,6 +11,7 @@ function NotFound() {
     let path = "/"; 
     history.push(path)
   }
+  
   return (
     <div  >
        <Box textAlign={'center'} height={'100%'} width={'100%'}  >

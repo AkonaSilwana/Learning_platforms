@@ -1,5 +1,5 @@
 import type {FormEvent, ChangeEvent} from 'react';
-import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, Flex, Center, } from '@chakra-ui/react';
+import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery, Center, } from '@chakra-ui/react';
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 import  {useState} from 'react';
@@ -49,14 +49,14 @@ function SignUp() {
       <Box textAlign={'center'} height={'100vh'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
         
-      <Box height={'700px'} width={isResponsive ?'80%':'50%'}>
+      <Box height={'700px'} width={isResponsive ?'95%':'50%'}>
         
       <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'100%'}
 height={'700px'} />
       </Box>
       
     
-     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'80%':'50%'} >
+     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'95%':'50%'} >
      
       <Heading>Sign Up</Heading>
     

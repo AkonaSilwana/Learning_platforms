@@ -46,19 +46,19 @@ function SignUp() {
       <>
       
       
-      <Box textAlign={'center'} height={'100vh'} width={'100%'}>
+      <Box textAlign={'center'} height={'100%'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
         
-      <Box height={'700px'} width={isResponsive ?'95%':'50%'}>
+      <Box height={'700px'} maxHeight={'100%'} width={isResponsive ?'95%':'50%'}>
         
-      <Image boxSize='200px' src='./Images/picture.jpg' alt="" width={'100%'}
-height={'700px'} />
+      <Image boxSize='100%' src='./Images/picture.jpg' alt="" width={'100%'}
+height={'100%'} />
       </Box>
       
     
-     <Box background={'#F7F8FF'}  height={'700px'} width={isResponsive ?'95%':'50%'} >
-     
-      <Heading>Sign Up</Heading>
+     <Box background={'#F7F8FF'}  height={'700px'}  maxHeight={'100%'} width={isResponsive ?'95%':'50%'} >
+      <Text fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'300px'} fontSize={'12px'} lineHeight={'40px'} display={'flex'} alignItems={'flex-end'} right={'300px'} >English(UK)</Text>
+      <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={'30px'} lineHeight={'30px'}>Sign Up</Heading>
     
      <Center alignItems={'center'} left={200}>
     { <Image  src='./Images/logo.png' alt="logo" width={'313px'} height={'158px'}/> }
@@ -69,7 +69,7 @@ height={'700px'} />
         <fieldset>
            
          <Input
-          marginTop={'80px'}
+          marginTop={'130px'}
          width={'300px'}
          variant="flushed"
          value={fullName}
@@ -110,7 +110,7 @@ height={'700px'} />
      
       <Button marginBottom={'10px'} height={'53px'} width={'434px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
-        <Text>Already have an acount ? <Link to="/Login">Login</Link></Text>
+        <Text>Already have an acount ? <Link to="/">Login</Link></Text>
         
         </Box>
        

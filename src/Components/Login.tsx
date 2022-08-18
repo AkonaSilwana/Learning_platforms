@@ -40,11 +40,11 @@ function Login() {
 height={'700px'} />
              </Box>
 <Box background={'#F7F8FF'}  width={isMobile ?'95%':'50%'} height={'700px'} >  
-      <Heading  left={'150px'}>Login </Heading>
+      <Heading  left={'150px'} fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={'30px'} lineHeight={'30px'}>Login </Heading>
         <Center alignItems={'center'} left={200}>
        <Image  src='./Images/logo.png' alt="logo"  width={'250px'} height={'250px'}  />
         </Center>
-       <Text>OR</Text>
+       <Text color={'grey'} >OR</Text>
     <form  onSubmit={event => {form(event)}}>
        <fieldset>
          <Input

@@ -36,11 +36,11 @@ function Login() {
     <>
         <Box textAlign={'center'} height={'100%'} width={'100%'}>
           <Box display={isMobile ? 'colum':'flex'} alignItems={'center'} width={'100%'}>
-            <Box height={isMobileHeight?'1500px':'700px'} width={isMobile ?'95%':'50%'}>
+            <Box height={isMobileHeight?'1500px':'700px'} width={isMobile ?'100%':'50%'}>
       <Image boxSize='100%' src='./Images/picture.jpg' alt=""  width={'100%'}
 height={'100%'} />
              </Box>
-<Box background={'#F7F8FF'}  width={isMobile ?'95%':'50%'} height={isMobileHeight?'1500px':'700px'} >  
+<Box background={'#F7F8FF'}  width={isMobile ?'100%':'50%'} height={isMobileHeight?'1500px':'700px'} >  
       <Heading  left={'150px'} fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={isMobileHeight?'60px':'30px'} lineHeight={'30px'} marginTop={isMobileHeight ? '200px':'10px'}>Login </Heading>
         <Center alignItems={'center'} left={200}>
        <Image  src='./Images/logo.png' alt="logo"  width={'250px'} height={isMobileHeight?'450px':'250px'}  />

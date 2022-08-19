@@ -35,7 +35,7 @@ function Login() {
   return (
     <>
         <Box textAlign={'center'} height={'100%'} width={'100%'}>
-          <Box display={isMobile ? 'colum':'flex'} alignItems={'center'} width={'100%'}>
+          <Box display={isMobile ? 'reverse-column':'flex'} alignItems={'center'} width={'100%'}>
             <Box height={isMobileHeight?'1500px':'700px'} width={isMobile ?'100%':'50%'}>
       <Image boxSize='100%' src='./Images/picture.jpg' alt=""  width={'100%'}
 height={'100%'} />
@@ -49,7 +49,7 @@ height={'100%'} />
     <form  onSubmit={event => {form(event)}}>
        <fieldset>
          <Input
-          width={'300px'}
+          width={isMobile?'150px':'300px'}
           variant="flushed"
           marginTop={'100px'}
            value={email}
@@ -61,7 +61,7 @@ height={'100%'} />
       </fieldset>
       <fieldset>
         <Input
-         width={'300px'}
+         width={isMobile?'150px':'300px'}
           marginBottom={'20px'}
            variant="flushed"
         value={password}
@@ -72,7 +72,7 @@ height={'100%'} />
        />
        <ViewOffIcon left={'500px'}/>
       </fieldset>
-       {<Button marginBottom={'15px'} height={'53px'} width={'434px'}  colorScheme='orange' onClick={onOpen}>Login</Button> }
+       {<Button marginBottom={'15px'} height={'53px'} width={isMobile?'217px':'434px'}  colorScheme='orange' onClick={onOpen}>Login</Button> }
      </form>
      <LoginModal  email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
       <p>Don't have an acount ? <Link to="/SignUp">Sign Up</Link></p>

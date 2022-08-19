@@ -8,6 +8,7 @@ function NotFound() {
 
 
   return (
+    
     <div  >
        <Box textAlign={'center'} height={'100%'} width={'100%'}  >
        <Center alignItems={'center'} >

@@ -1,16 +1,11 @@
 import React from 'react'
-// import {  useHistory  } from 'react-router-dom';
+ import { Link  } from 'react-router-dom';
 import { Image, Heading,Box, Flex, Button, useMediaQuery, Center } from '@chakra-ui/react';
 
 
 function NotFound() {
   const [isResponsive] = useMediaQuery('(max-width: 400px)')
 
-  // const history = useHistory();
-  // const routeChange =() =>{
-    // let path = "/"; 
-    // history.push(path)
-  // }
 
   return (
     <div  >
@@ -25,8 +20,9 @@ function NotFound() {
        <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={isResponsive? '350px':'700px'} fontSize={isResponsive?'15px':'30px'} lineHeight={'30px'}>Page Not Found</Heading>
         <Box backgroundColor={'#F7F8FF'} >
         <Image src='./Images/404error.jpg' alt='' marginTop={'20px'} width={isResponsive? '260px':'521px'} height={isResponsive?'138px':'276px'}   /> 
-       
-         {/* <Button colorScheme='orange' width={isResponsive?'153px':'307px'} height={isResponsive?'28px':'56px'} marginTop={'30px'} onClick={routeChange}>Back to home page</Button> */}
+           <Link to="/">
+          <Button colorScheme='orange' width={isResponsive?'153px':'307px'} height={isResponsive?'28px':'56px'} marginTop={'30px'}>Back to home page</Button> 
+          </Link>
          </Box>
         </Box> 
        

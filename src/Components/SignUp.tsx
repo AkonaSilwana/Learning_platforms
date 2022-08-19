@@ -49,7 +49,7 @@ function SignUp() {
       
       
       <Box textAlign={'center'} height={'100%'} width={'100%'}>
-      <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
+      <Box display={ isResponsive ? 'reverse-column':'flex'} alignItems={'center'} width={'100%'} > 
         
       <Box height={isResponsiveHeight?'1500px':'700px'} width={isResponsive ?'100%':'50%'}>
         
@@ -74,7 +74,7 @@ height={'100%'} />
          <Input
         
           marginTop={'130px'}
-         width={'300px'}
+         width={isResponsive?'150px':'300px'}
          variant="flushed"
          value={fullName}
          type="text" 
@@ -88,7 +88,7 @@ height={'100%'} />
       </fieldset>
       <fieldset>
          <Input
-          width={'300px'}
+          width={isResponsive?'150px':'300px'}
          variant="flushed"
          value={email}
          type="email" 
@@ -100,7 +100,7 @@ height={'100%'} />
       </fieldset>
       <fieldset>
         <Input
-        width={'300px'}
+        width={isResponsive?'150px':'300px'}
         marginBottom={'20px'}
          variant="flushed"
         value={password}
@@ -115,7 +115,7 @@ height={'100%'} />
       
      </form>
      
-      <Button marginBottom={'10px'} height={'53px'} width={'434px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
+      <Button marginBottom={'10px'} height={'53px'} width={isResponsive?'217px':'434px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         <Text>Already have an acount ? <Link to="/">Login</Link></Text>
         

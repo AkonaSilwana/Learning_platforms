@@ -23,6 +23,7 @@ function Login() {
    const { isOpen, onOpen, onClose } = useDisclosure()
 
     const [isMobile] = useMediaQuery('(max-width: 750px)')
+    const  [isMobileHeight] = useMediaQuery('(min-height: 745px)')
 
     const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
@@ -33,16 +34,16 @@ function Login() {
      }
   return (
     <>
-        <Box textAlign={'center'} height={'100vh'} width={'100%'}>
+        <Box textAlign={'center'} height={'100%'} width={'100%'}>
           <Box display={isMobile ? 'colum':'flex'} alignItems={'center'} width={'100%'}>
-            <Box height={'700px'} width={isMobile ?'95%':'50%'}>
-      <Image boxSize='200px' src='./Images/picture.jpg' alt=""  width={'100%'}
-height={'700px'} />
+            <Box height={isMobileHeight?'1500px':'700px'} width={isMobile ?'95%':'50%'}>
+      <Image boxSize='100%' src='./Images/picture.jpg' alt=""  width={'100%'}
+height={'100%'} />
              </Box>
-<Box background={'#F7F8FF'}  width={isMobile ?'95%':'50%'} height={'700px'} >  
-      <Heading  left={'150px'} fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={'30px'} lineHeight={'30px'}>Login </Heading>
+<Box background={'#F7F8FF'}  width={isMobile ?'95%':'50%'} height={isMobileHeight?'1500px':'700px'} >  
+      <Heading  left={'150px'} fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={isMobileHeight?'60px':'30px'} lineHeight={'30px'} marginTop={isMobileHeight ? '200px':'10px'}>Login </Heading>
         <Center alignItems={'center'} left={200}>
-       <Image  src='./Images/logo.png' alt="logo"  width={'250px'} height={'250px'}  />
+       <Image  src='./Images/logo.png' alt="logo"  width={'250px'} height={isMobileHeight?'450px':'250px'}  />
         </Center>
        <Text color={'grey'} >OR</Text>
     <form  onSubmit={event => {form(event)}}>

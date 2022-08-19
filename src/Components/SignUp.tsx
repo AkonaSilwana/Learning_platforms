@@ -3,8 +3,8 @@ import {  Input, Heading, useDisclosure, Button, Image, Box,Text, useMediaQuery,
 import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 import  {useState} from 'react';
-
 import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons';
+
 
 const sendForm = async (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault()
@@ -20,6 +20,7 @@ const sendForm = async (event: FormEvent<HTMLFormElement>) => {
 
 
 
+
 function SignUp() {
      const [fullName , setFullName] = useState("")
   const [email , setEmail] = useState("")
@@ -28,7 +29,7 @@ function SignUp() {
    const { isOpen, onOpen, onClose } = useDisclosure()
 
     const [isResponsive] = useMediaQuery('(max-width: 750px)')
-
+     const  [isResponsiveHeight] = useMediaQuery('(min-height: 745px)')
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setFullName(event.target.value)
        
@@ -41,7 +42,7 @@ function SignUp() {
         setPassword(event.target.value)
        
     }
- 
+    
   return (
       <>
       
@@ -49,20 +50,20 @@ function SignUp() {
       <Box textAlign={'center'} height={'100%'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
         
-      <Box height={'700px'} maxHeight={'100%'} width={isResponsive ?'95%':'50%'}>
+      <Box height={isResponsiveHeight?'1500px':'700px'} width={isResponsive ?'95%':'50%'}>
         
       <Image boxSize='100%' src='./Images/picture.jpg' alt="" width={'100%'}
 height={'100%'} />
       </Box>
       
     
-     <Box background={'#F7F8FF'}  height={'700px'}  maxHeight={'100%'} width={isResponsive ?'95%':'50%'} >
+     <Box background={'#F7F8FF'}  height={isResponsiveHeight?'1500px':'700px'}  maxHeight={'100%'} width={isResponsive ?'95%':'50%'} >
       <Text fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'300px'} fontSize={'12px'} lineHeight={'40px'} display={'flex'} alignItems={'flex-end'} position={'absolute'} right={'10px'}>English(UK) <TriangleDownIcon/> </Text>
       
-      <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={'30px'} lineHeight={'30px'} marginTop={'40px'}>Sign Up</Heading>
+      <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={isResponsiveHeight?'60px':'30px'} lineHeight={'30px'} marginTop={isResponsiveHeight ? '200px':'40px'}>Sign Up</Heading>
     
      <Center alignItems={'center'} left={200}>
-    { <Image  src='./Images/logo.png' alt="logo" width={'313px'} height={'158px'}/> }
+    { <Image  src='./Images/logo.png' alt="logo" width={'313px'} height={isResponsiveHeight?'316px':'158px'}/> }
    </Center>
   
      <Text color={'grey'}>OR</Text>
@@ -77,9 +78,11 @@ height={'100%'} />
          type="text" 
          id="name"
          placeholder='FullName'
+       
          onChange={handleChange}
         />
-        
+       
+       
       </fieldset>
       <fieldset>
          <Input
@@ -89,6 +92,7 @@ height={'100%'} />
          type="email" 
          id="email"
          placeholder='Email Address'
+         
           onChange={handleChange1}
          />
       </fieldset>
@@ -101,7 +105,7 @@ height={'100%'} />
         type="password"
         id="password"
         placeholder='Password'
-        
+       
          onChange={handleChange2}
        />
        <ViewOffIcon/>

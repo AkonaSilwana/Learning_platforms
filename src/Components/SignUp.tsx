@@ -6,6 +6,7 @@ import  {useState} from 'react';
 import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons';
 
 
+
 const sendForm = async (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault()
     
@@ -50,14 +51,14 @@ function SignUp() {
       <Box textAlign={'center'} height={'100%'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
         
-      <Box height={isResponsiveHeight?'1500px':'700px'} width={isResponsive ?'95%':'50%'}>
+      <Box height={isResponsiveHeight?'1500px':'700px'} width={isResponsive ?'100%':'50%'}>
         
       <Image boxSize='100%' src='./Images/picture.jpg' alt="" width={'100%'}
 height={'100%'} />
       </Box>
       
     
-     <Box background={'#F7F8FF'}  height={isResponsiveHeight?'1500px':'700px'}  maxHeight={'100%'} width={isResponsive ?'95%':'50%'} >
+     <Box background={'#F7F8FF'}  height={isResponsiveHeight?'1500px':'700px'}  maxHeight={'100%'} width={isResponsive ?'100%':'50%'} >
       <Text fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'300px'} fontSize={'12px'} lineHeight={'40px'} display={'flex'} alignItems={'flex-end'} position={'absolute'} right={'10px'}>English(UK) <TriangleDownIcon/> </Text>
       
       <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={isResponsiveHeight?'60px':'30px'} lineHeight={'30px'} marginTop={isResponsiveHeight ? '200px':'40px'}>Sign Up</Heading>
@@ -71,6 +72,7 @@ height={'100%'} />
         <fieldset>
            
          <Input
+        
           marginTop={'130px'}
          width={'300px'}
          variant="flushed"

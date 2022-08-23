@@ -4,24 +4,42 @@ import UserDetailsSignUpModal from './UserDetailsSignUpModal';
 import { Link  } from 'react-router-dom';
 import  {useState} from 'react';
 import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons';
+ import { useForm } from 'react-hook-form';
 
+interface FormData  {
+  fullName: string
+  email: string,
+  password: string,
+  
+};
+ 
 
-const sendForm = async (event: FormEvent<HTMLFormElement>) => {
-  event.preventDefault()
+/*const sendForm = async (event: FormEvent<HTMLFormElement>,data: FormData) => {
+ event.preventDefault()
     
   const {fullName, email , password} = event.target as typeof event.target & {
-    fullName: {value: string}
-    email: {value: string }
-     password: {value: string }
+    fullName: string
+    email: string 
+    password: string 
     
   }
-  console.log(fullName.value, email.value, password.value)
-}
+  if (fullName.trim().length === 0 && email.trim().length === 0 && password.trim().length === 0){
+    console.log("Field is required")
+  }
+  console.log(fullName, email, password)
+ 
+}*/
 
 
 
 
 function SignUp() {
+   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+   const onFormSubmit = (data: FormData) => {
+   console.log("data", data)
+     };
+
+     console.log("our error",errors)
      const [fullName , setFullName] = useState("")
   const [email , setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -30,19 +48,19 @@ function SignUp() {
 
     const [isResponsive] = useMediaQuery('(max-width: 750px)')
      const  [isResponsiveHeight] = useMediaQuery('(min-height: 745px)')
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setFullName(event.target.value)
        
     }
-    const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
+   const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
-       
     }
     const handleChange2 = (event: ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value)
        
     }
     
+     
   return (
       <>
       
@@ -50,14 +68,14 @@ function SignUp() {
       <Box textAlign={'center'} height={'100%'} width={'100%'}>
       <Box display={ isResponsive ? 'column':'flex'} alignItems={'center'} width={'100%'} > 
         
-      <Box height={isResponsiveHeight?'1500px':'700px'} width={isResponsive ?'95%':'50%'}>
+      <Box height={isResponsiveHeight?'1500px':'700px'} width={isResponsive ?'100%':'50%'}>
         
       <Image boxSize='100%' src='./Images/picture.jpg' alt="" width={'100%'}
 height={'100%'} />
       </Box>
       
     
-     <Box background={'#F7F8FF'}  height={isResponsiveHeight?'1500px':'700px'}  maxHeight={'100%'} width={isResponsive ?'95%':'50%'} >
+     <Box background={'#F7F8FF'}  height={isResponsiveHeight?'1500px':'700px'}  maxHeight={'100%'} width={isResponsive ?'100%':'50%'} >
       <Text fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'300px'} fontSize={'12px'} lineHeight={'40px'} display={'flex'} alignItems={'flex-end'} position={'absolute'} right={'10px'}>English(UK) <TriangleDownIcon/> </Text>
       
       <Heading fontStyle={'normal'} fontFamily={'Roboto'} fontWeight={'700px'} fontSize={isResponsiveHeight?'60px':'30px'} lineHeight={'30px'} marginTop={isResponsiveHeight ? '200px':'40px'}>Sign Up</Heading>
@@ -67,53 +85,69 @@ height={'100%'} />
    </Center>
   
      <Text color={'grey'}>OR</Text>
-<form onSubmit={event => {sendForm(event)}}>
+<form onSubmit={handleSubmit(onFormSubmit)}>
         <fieldset>
            
          <Input
+        
           marginTop={'130px'}
-         width={'300px'}
+         width={isResponsive?'150px':'300px'}
          variant="flushed"
          value={fullName}
          type="text" 
          id="name"
          placeholder='FullName'
-       
-         onChange={handleChange}
+         {...register("fullName", {required: true, maxLength:15})} 
+          onChange={handleChange}
+        
         />
-       
+        <div> 
+         {errors.fullName?.type === "required" && ( 
+           <span style={{color:'red'}}>fullName is required</span> 
+         )} 
+        </div>
        
       </fieldset>
       <fieldset>
          <Input
-          width={'300px'}
+          width={isResponsive?'150px':'300px'}
          variant="flushed"
-         value={email}
+        value={email}
          type="email" 
          id="email"
          placeholder='Email Address'
-         
+           {...register("email",{required: true, maxLength:15})} 
           onChange={handleChange1}
          />
+            <div> 
+        {errors.email?.type === "required" && ( 
+          <span style={{color:'red'}}>email is required</span> 
+         )} 
+       </div> 
       </fieldset>
       <fieldset>
         <Input
-        width={'300px'}
+        width={isResponsive?'150px':'300px'}
         marginBottom={'20px'}
          variant="flushed"
         value={password}
         type="password"
         id="password"
         placeholder='Password'
-       
-         onChange={handleChange2}
+        //  {...register("password",{required: true, maxLength:15})} 
+        //  onChange={handleChange2}
        />
        <ViewOffIcon/>
+        {/* <div> */}
+        {/* {errors.password?.type === "required" && ( */}
+          {/* <span style={{color:'red'}}>password is required</span> */}
+        {/* )} */}
+       {/* </div> */}
       </fieldset>
       
      </form>
      
-      <Button marginBottom={'10px'} height={'53px'} width={'434px'} colorScheme='orange' onClick={onOpen}>Create Account</Button>
+      <Button marginBottom={'10px'} height={'53px'} width={isResponsive?'217px':'434px'} colorScheme='orange' type='submit' onClick={onOpen}>Create Account</Button>
       <UserDetailsSignUpModal name={fullName} email={email} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         <Text>Already have an acount ? <Link to="/">Login</Link></Text>
         
